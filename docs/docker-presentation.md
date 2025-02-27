@@ -3,34 +3,37 @@ marp: true
 theme: default
 paginate: true
 style: |
-section {
-background-color: #0db7ed;
-color: white;
-text-align: center;
-}
-h1 {
-font-size: 2.5em;
-font-family: 'Arial', sans-serif;
-color: #ffffff;
-}
-h2 {
-font-size: 2em;
-font-family: 'Arial', sans-serif;
-color: #ffffff;
-}
-code {
-background-color: #ffffff;
-color: black;
-font-family: 'Courier New', monospace;
-}
-ul {
-text-align: left;
-}
-.highlight {
-background-color: #005f73;
-padding: 10px;
-border-radius: 5px;
-}
+  section {
+    background-color: #032b44; /* Azul oscuro Docker */
+    color: white;
+    text-align: left;
+  }
+  h1, h2 {
+    font-size: 2em;
+    font-family: 'Arial', sans-serif;
+    color: #0db7ed; /* Azul claro destacado */
+  }
+  ul, p {
+    text-align: left;
+    color: white;
+  }
+  code {
+    background-color: #0db7ed;
+    color: #032b44;
+    font-family: 'Courier New', monospace;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .highlight {
+    background-color: #005f73; /* Azul oscuro destacado */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 ---
 
 # 🐳 Introducción a Docker para Python
@@ -43,33 +46,39 @@ border-radius: 5px;
 
 - **Docker** es una plataforma que permite crear, ejecutar y gestionar aplicaciones dentro de _contenedores_.
 - Los contenedores encapsulan todo lo necesario para que una aplicación funcione:
-  - Código
-  - Bibliotecas
-  - Configuraciones
-  - Dependencias
+  - Código 📁
+  - Bibliotecas 📚
+  - Configuraciones ⚙️
+  - Dependencias 🔗
 
 ---
 
 ## ¿Por Qué Usar Docker?
 
-- **Reproducibilidad:** Garantiza que tu aplicación funcione igual en cualquier máquina.
-- **Portabilidad:** Facilita compartir tu entorno de desarrollo con otros.
-- **Aislamiento:** Cada contenedor funciona de forma independiente sin afectar al sistema base.
-- **Optimización:** Reduce conflictos entre dependencias.
+- **Reproducibilidad:** Garantiza que tu aplicación funcione igual en cualquier máquina. 🔄
+- **Portabilidad:** Facilita compartir tu entorno de desarrollo con otros. 🚀
+- **Aislamiento:** Cada contenedor funciona de forma independiente sin afectar al sistema base. 🔒
+- **Optimización:** Reduce conflictos entre dependencias. 💻
 
 ---
 
 ## Conceptos Básicos de Docker
 
-1. **Contenedores:** Los contenedores son entornos ligeros y autónomos que permiten ejecutar aplicaciones junto con todas sus dependencias. Actúan como una "caja" en la que todo lo necesario para la aplicación está preconfigurado, asegurando que funcione igual en cualquier entorno. Se crean a partir de imágenes y comparten el núcleo del sistema operativo del host, lo que los hace más eficientes que las máquinas virtuales.
+1. **Contenedores:**  
+   ![width:100](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Docker_%28container_engine%29.svg/1200px-Docker_%28container_engine%29.svg.png)  
+   Los contenedores son entornos ligeros y autónomos que permiten ejecutar aplicaciones junto con todas sus dependencias. Actúan como una "caja" en la que todo lo necesario para la aplicación está preconfigurado.
 
 ---
 
-2. **Imágenes:** Las imágenes son plantillas inmutables que contienen el sistema de archivos y la configuración necesaria para ejecutar un contenedor. Se pueden ver como un "recetario" a partir del cual se pueden generar múltiples contenedores. Cada imagen puede incluir una aplicación específica, sus bibliotecas y configuraciones.
+2. **Imágenes:**  
+   ![width:100](https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png)  
+   Las imágenes son plantillas inmutables que contienen el sistema de archivos y la configuración necesaria para ejecutar un contenedor. Se pueden ver como un "recetario" a partir del cual se pueden generar múltiples contenedores.
 
 ---
 
-3. **Volúmenes:** Los volúmenes son mecanismos de almacenamiento persistente en Docker. Permiten que los datos generados dentro de un contenedor no se pierdan cuando este se detiene o se elimina. Se utilizan para almacenar bases de datos, archivos de configuración y cualquier otro tipo de información que deba permanecer entre reinicios del contenedor.
+3. **Volúmenes:**  
+   ![width:100](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Docker_%28container_engine%29_logo_with_text.svg/1200px-Docker_%28container_engine%29_logo_with_text.svg.png)  
+   Los volúmenes son mecanismos de almacenamiento persistente en Docker. Permiten que los datos generados dentro de un contenedor no se pierdan cuando este se detiene o se elimina.
 
 ---
 
@@ -77,10 +86,10 @@ border-radius: 5px;
 
 Vamos a crear un proyecto simple que:
 
-- Genera números aleatorios y los guarda en un archivo.
-- Usa la biblioteca `numpy` para realizar operaciones numéricas.
-- Encapsula el entorno con Docker.
-- Se comparte en Docker Hub para que cualquiera pueda ejecutarlo.
+- Genera números aleatorios y los guarda en un archivo. 🎲
+- Usa la biblioteca `numpy` para realizar operaciones numéricas. 📊
+- Encapsula el entorno con Docker. 🐳
+- Se comparte en Docker Hub para que cualquiera pueda ejecutarlo. 🌍
 
 ---
 
@@ -88,17 +97,18 @@ Vamos a crear un proyecto simple que:
 
 Antes de comenzar, asegúrate de tener instalado Docker:
 
-- **Windows/Mac:** Descarga e instala Docker Desktop desde [aquí](https://www.docker.com/products/docker-desktop).
+- **Windows/Mac:** Descarga e instala Docker Desktop desde [aquí](https://www.docker.com/products/docker-desktop).  
+  ![width:100](https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png)
 - **Linux:** Sigue las instrucciones específicas para tu distribución en [la documentación oficial](https://docs.docker.com/engine/install/).
 
 Verifica que Docker esté funcionando correctamente:
 
 ```bash
 docker --version
+
 ```
 
 ---
-
 ## Paso 2: Crear el Proyecto
 
 Crea un directorio llamado `docker-python-project` y navega a él:
@@ -114,6 +124,10 @@ Crea los siguientes archivos dentro del directorio:
 ### **generate_numbers.py**
 ```python
 import numpy as np
+import os
+
+output_dir = "/app/output"
+os.makedirs(output_dir, exist_ok=True)  # Crear la carpeta si no existe
 
 def generate_random_numbers():
     numbers = np.random.randint(1, 100, size=10)
@@ -121,9 +135,12 @@ def generate_random_numbers():
 
 if __name__ == "__main__":
     numbers = generate_random_numbers()
-    with open("numbers.txt", "w") as file:
+    file_path = os.path.join(output_dir, "numbers.txt")  # Guardar en /app/output/
+    
+    with open(file_path, "w") as file:
         file.write("\n".join(map(str, numbers)))
-    print("Archivo 'numbers.txt' creado con éxito.")
+    
+    print(f"Archivo guardado en: {file_path}")
 ```
 ### **requirements.txt**
 
@@ -242,11 +259,11 @@ cat output/numbers.txt
 
 ## Conclusión
 
-Has aprendido los conceptos básicos de Docker y cómo aplicarlos en un proyecto de Python. Ahora puedes comenzar a explorar más posibilidades, como:
+Hemos aprendido los conceptos básicos de Docker y cómo aplicarlos en un proyecto de Python. Ahora podremos comenzar a explorar más posibilidades, como:
 
 - Usar `docker-compose` para gestionar múltiples servicios.
 - Desplegar tus aplicaciones en la nube.
-- Optimizar tus imágenes para producción.
+- Optimizar imágenes para producción.
 
 ### Recursos Adicionales
 
@@ -254,6 +271,4 @@ Has aprendido los conceptos básicos de Docker y cómo aplicarlos en un proyecto
 - [Docker Hub](https://hub.docker.com/)
 - [Marp: Presentaciones en Markdown](https://marp.app/)
 
----
 
-Este documento está optimizado para ser visualizado con **Marp** y puede servir como presentación en tiempo real. 🚀

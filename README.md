@@ -17,8 +17,8 @@ Además, incluye una presentación creada con **Marp** para visualizar los conce
 
 1️⃣ Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/docker-python-project.git
-cd docker-python-project
+git clone https://github.com/merkandez/docker-training
+cd docker-training
 ```
 
 2️⃣ Construye la imagen de Docker:
@@ -102,7 +102,7 @@ docker-python-project/
 - **`docs/docker-intro.md`** → Presentación en formato Marp.
 - **`docs/marp-presentation.md`** → Explicación sobre cómo usar Marp.
 - **`README.md`** → Explicación general del proyecto y cómo ejecutarlo.
-- **`.gitignore`** → Para evitar subir archivos innecesarios.
+
 
 ---
 

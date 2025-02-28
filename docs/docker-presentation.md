@@ -4,14 +4,14 @@ theme: default
 paginate: true
 style: |
   section {
-    background-color: #032b44; /* Azul oscuro Docker */
+    background-color: #032b44; 
     color: white;
     text-align: left;
   }
   h1, h2 {
-    font-size: 2em;
-    font-family: 'Arial', sans-serif;
-    color: #0db7ed; /* Azul claro destacado */
+    font-size: 1.5em;
+    font-family: sans-serif;
+    color: #0db7ed; 
   }
   ul, p {
     text-align: left;
@@ -25,7 +25,7 @@ style: |
     border-radius: 5px;
   }
   .highlight {
-    background-color: #005f73; /* Azul oscuro destacado */
+    background-color: #005f73; 
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -111,11 +111,11 @@ docker --version
 ---
 ## Paso 2: Crear el Proyecto
 
-Crea un directorio llamado `docker-python-project` y navega a él:
+Crea un directorio llamado `docker-training` y navega a él:
 
 ```bash
-mkdir docker-python-project
-cd docker-python-project
+mkdir docker-training
+cd docker-training
 ```
 ---
 

@@ -1,16 +1,14 @@
-# Usamos una imagen ligera de Python
+# 1️⃣ Usamos una imagen oficial de Python optimizada
 FROM python:3.9-slim
 
-# Establecemos el directorio de trabajo dentro del contenedor
+# 2️⃣ Establecemos el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiamos los archivos al contenedor
+# 3️⃣ Copiamos los archivos del proyecto al contenedor
 COPY . /app
 
-# Instalamos las dependencias
-RUN pip install --no-cache-dir -r requirements.txt
+# 4️⃣ Instalamos dependencias usando uv
+RUN pip install uv && uv pip install --no-cache-dir -r requirements.txt
 
-
-# Comando para ejecutar el script
+# 5️⃣ Comando por defecto que ejecuta el script
 CMD ["python", "generate_numbers.py"]
-

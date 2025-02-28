@@ -13,6 +13,9 @@ style: |
     font-family: sans-serif;
     color: #0db7ed; 
   }
+  h1 {
+  font-size: 2em;
+  }
   ul, p {
     text-align: left;
     color: white;
@@ -109,6 +112,7 @@ docker --version
 ```
 
 ---
+
 ## Paso 2: Crear el Proyecto
 
 Crea un directorio llamado `docker-training` y navega a él:
@@ -117,11 +121,13 @@ Crea un directorio llamado `docker-training` y navega a él:
 mkdir docker-training
 cd docker-training
 ```
+
 ---
 
 Crea los siguientes archivos dentro del directorio:
 
 ### **generate_numbers.py**
+
 ```python
 import numpy as np
 import os
@@ -136,12 +142,13 @@ def generate_random_numbers():
 if __name__ == "__main__":
     numbers = generate_random_numbers()
     file_path = os.path.join(output_dir, "numbers.txt")  # Guardar en /app/output/
-    
+
     with open(file_path, "w") as file:
         file.write("\n".join(map(str, numbers)))
-    
+
     print(f"Archivo guardado en: {file_path}")
 ```
+
 ### **requirements.txt**
 
 ```text
@@ -270,5 +277,3 @@ Hemos aprendido los conceptos básicos de Docker y cómo aplicarlos en un proyec
 - [Documentación oficial de Docker](https://docs.docker.com/)
 - [Docker Hub](https://hub.docker.com/)
 - [Marp: Presentaciones en Markdown](https://marp.app/)
-
-

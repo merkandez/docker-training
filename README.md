@@ -48,7 +48,7 @@ npm install -g @marp-team/marp-cli
 ```
 2. Abre la presentación:
 ```bash
-marp docs/docker-intro.md
+marp docs/docker-presentation.md
 ```
 
 ---

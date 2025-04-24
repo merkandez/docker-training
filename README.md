@@ -118,4 +118,4 @@ docker-python-project/
 
 Este proyecto proporciona una introducción práctica a Docker y Marp.
 Sigue los pasos para ejecutar el proyecto, visualizar la presentación y compartir la imagen en Docker Hub. 🚀
-
+[Repositorio GitHub](https://github.com/merkandez/docker-training)
